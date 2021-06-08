@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for PACKAGE in $(cat $1);
+do
+	$PACKAGE --version > /dev/null
+	if [[ $? -eq 0 ]]
+	then
+		UTIL=$($PACKAGE --version | head -1)
+		VERSION=${UTIL#* }
+		echo $UTIL found with version $VERSION installed
+	else
+		echo $PACKAGE not found
+	fi
+done

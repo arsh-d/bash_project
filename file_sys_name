@@ -1,0 +1,6 @@
+#!/bin/bash
+
+STR=$(mount | grep "^/dev" | head -1)
+STR=${STR#*type}
+STR=${STR% *}
+echo file system name is $STR

@@ -1,0 +1,16 @@
+#!/bin/bash
+# script to print date till the last of the month
+# Usage:
+#	./date_script 
+# 
+
+COUNT=0
+while [[ true ]]
+do
+	if [[ $(date --date="+$COUNT day" +%m) -eq $(date --date="+1 month" +%m) ]]	    # terminate the loop when change in month is detected
+	then
+		break
+	fi 
+	echo $(date --date="+$COUNT day" +%d-%m-%y)					    # print the incremented date
+	COUNT=$(($COUNT + 1))								    # increment the counter by 1 in each iteration.
+done

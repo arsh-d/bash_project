@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo mount --bind /var/log /mnt/log

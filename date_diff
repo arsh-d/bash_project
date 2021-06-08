@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DATE1=$(date -d $1 +%s)
+DATE2=$(date -d $2 +%s)
+echo $(( ($DATE1 - $DATE2) / 86400 )) days
+
+
+
