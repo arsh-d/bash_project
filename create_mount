@@ -1,3 +1,9 @@
 #!/bin/bash
+# 
+# script to mount a directory to another
+#
+# Usage:
+#	bash ./create_mount
+#
 
 sudo mount --bind /var/log /mnt/log

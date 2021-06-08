@@ -1,12 +1,20 @@
 #!/bin/bash
+#
+# Script to check if a package is installed or not,
+# if present print the version.
+#
+# Usage:
+#	bash ./util_version [list of package]
+#
+
 
 for PACKAGE in $(cat $1);
 do
-	$PACKAGE --version > /dev/null
+	$PACKAGE --version > /dev/null		# check if package exist
 	if [[ $? -eq 0 ]]
 	then
-		UTIL=$($PACKAGE --version | head -1)
-		VERSION=${UTIL#* }
+		UTIL=$($PACKAGE --version | head -1)  # extracting only first line of output
+		VERSION=${UTIL#* }		      # extract the version number
 		echo $UTIL found with version $VERSION installed
 	else
 		echo $PACKAGE not found

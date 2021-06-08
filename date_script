@@ -1,5 +1,7 @@
 #!/bin/bash
+#
 # script to print date till the last of the month
+#
 # Usage:
 #	./date_script 
 # 

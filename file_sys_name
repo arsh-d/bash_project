@@ -1,6 +1,13 @@
 #!/bin/bash
+#
+# Script to print the current file system name.
+#
+# Usage:
+#	bash ./file_sys_name
+#
 
-STR=$(mount | grep "^/dev" | head -1)
-STR=${STR#*type}
+
+STR=$(mount | grep "^/dev" | head -1)	# filter all entries starting with /dev
+STR=${STR#*type}			# remove other information
 STR=${STR% *}
 echo file system name is $STR

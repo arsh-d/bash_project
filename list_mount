@@ -1,9 +1,13 @@
 #!/bin/bash
 #
+# Script to list all the mount with their types.
+# 
+# Usage:
+#	bash ./list_mount
 # mount displays all the mount present in the system
 #
 # 3rd - column is the mount name.
 # 5th - column is the mount type.
 #
 
-mount | awk '{print $3 "	" $5}'
+mount | awk '{print $3 "	" $5}' 	# display only 3rd and 5th column from mount list

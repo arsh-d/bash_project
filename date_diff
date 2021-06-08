@@ -1,4 +1,14 @@
 #!/bin/bash
+#
+# Script to print the difference between two dates.
+#
+# Usage:
+#	bash ./date_diff [date 1] [date 2]
+#
+# date 1 - latest date
+# date 2 - older date
+# 
+# If date 2 is lates then the output will be negative.
 
 DATE1=$(date -d $1 +%s)
 DATE2=$(date -d $2 +%s)
