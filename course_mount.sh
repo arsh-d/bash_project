@@ -112,7 +112,7 @@ unmount_course() {
 		echo "unmounting $COURSE"
 		sudo umount /home/trainee/courses/$1
 		echo "$1 unmounted succesfully"
-		rm -r /home/trainee/courses/$1				# recursively removing directory
+		rm -r /home/trainee/courses/$1 2> /dev/null				# recursively removing directory
 		echo "$1 directory deleted successfully !"
 	else
 		echo "$1 already unmounted"
@@ -131,7 +131,7 @@ unmount_all() {
 			echo "unmounting $COURSE"
 			sudo umount /home/trainee/courses/$COURSE
 			echo "$COURSE unmounted succesfully"
-			rm -r /home/trainee/courses/${COURSE%%/*}		# recursively removing directory
+			rm -r /home/trainee/courses/${COURSE%%/*} 2> /dev/null		# recursively removing directory
 			echo "$COURSE directory deleted successfully !"
 		else
 			echo "$COURSE already unmounted"
