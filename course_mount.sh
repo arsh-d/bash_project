@@ -60,22 +60,21 @@ mount_course() {
 
 #--------------------check if mount already exists-----------------------------------#
 
-mount | grep /home/trainee/courses/$1 > /dev/null 
-STAT=$(echo $?)                                        # store the exit status of the command 
-if [[ $STAT == 0 ]]					 # if exit status = 0, command executed successfully course is alread mounted
-then							 # if exit status != 0, command execution failure
-	echo "$1 already mounted"
-	exit 0
-else
-	echo "mounting $1"
-fi
+	mount | grep /home/trainee/courses/$1 > /dev/null 
+	STAT=$(echo $?)                                        # store the exit status of the command 
+	if [[ $STAT == 0 ]]					 # if exit status = 0, command executed successfully course is alread mounted
+	then							 # if exit status != 0, command execution failure
+		echo "$1 already mounted"
+		exit 0
+	else
+		echo "mounting $1"
+	fi
 
 #--------------------creating target DIR and mounting------------------------------------#
 
-mkdir -p /home/trainee/courses/$1			
-#chown -R trainee:ftpaccess /home/trainee/courses/$1 
-bindfs -p a-w -u trainee -g ftpaccess /home/arsh/Desktop/bash_project_2/courses/$1 /home/trainee/courses/$1
-echo "$1 mounted succesfully"
+	mkdir -p /home/trainee/courses/$1			
+	bindfs -p a-w -u trainee -g ftpaccess /home/arsh/Desktop/bash_project_2/courses/$1 /home/trainee/courses/$1
+	echo "$1 mounted succesfully"
 
 }
 
@@ -94,7 +93,6 @@ mount_all() {
 		else
 			echo "mounting $COURSE"
 			mkdir -p /home/trainee/courses/$COURSE
-			#chown -R trainee:ftpaccess /home/trainee/courses/$COURSE
 			bindfs -p a-w -u trainee -g ftpaccess /home/arsh/Desktop/bash_project_2/courses/$COURSE /home/trainee/courses/$COURSE
 			echo "$COURSE mounted successfully"
 		fi
